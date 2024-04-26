@@ -1,0 +1,48 @@
+[id=login] {
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-top: 3rem;
+  padding: 2rem;
+  width: 350px;
+  background-color: white;
+}
+[id=login] h2 {
+  font-size: 1.5em;
+}
+[id=login] fieldset {
+  text-align: left;
+  border: none;
+  padding: 0;
+  padding-bottom: 15px;
+}
+[id=login] input {
+  padding: 5px;
+  font-size: 1.3rem;
+}
+[id=login] button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+[id=login] p {
+  color: red;
+  font-weight: italic;
+}
+
+.remember label {
+  margin-left: 0.25rem;
+}
+
+label.sign {
+  font-weight: bold;
+}
+
+.bg-dark {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 85vh;
+  background-color: #12002b;
+}/*# sourceMappingURL=Auth.css.map */
