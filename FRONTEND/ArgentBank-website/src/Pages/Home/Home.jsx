@@ -1,9 +1,7 @@
-//import HeadTitle from "../../components/HeadTitle/HeadTitle";
 import { chatLogo, moneyLogo, securityLogo } from "../../assets/images";
 import Hero from "../../components/Hero/Hero.jsx";
-//import Header from "../../components/Header/Header";
-//import Footer from "../../components/Footer/Footer";
 import "./Home.scss";
+//Creation du composant "Head Title" necessaire ? 
 const Home = () => {
   return (
     <>

@@ -10,4 +10,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 
-// il faudra encadrer App avec le Provider pour que le store soit accessible à l'ensemble de l'application
+// il faudra encadrer App avec le Provider pour que le store soit accessible à l'ensemble de l'application // en cours

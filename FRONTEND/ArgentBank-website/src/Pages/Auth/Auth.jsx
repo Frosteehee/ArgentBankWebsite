@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { setToken, setUser } from "../../redux/Auth.slice";
+//Page de Login 
+
+import { useEffect, useState } from "react";//  importation de useEffect et useState
+import { useDispatch } from "react-redux";//importation de useDispatch
+import { useNavigate } from "react-router-dom"; //importation de useNavigate
+import { setToken, setUser } from "../../redux/Auth.slice"; //importation des fonctions setToken et setUser
 
 
 const Auth = () => {
@@ -17,31 +19,31 @@ const Auth = () => {
   const rememberInput = document.getElementById("remember-me");
 
   useEffect(() => {
-    const localUser = JSON.parse(localStorage.getItem("user"));
-    if (localUser) {
+    const localUser = JSON.parse(localStorage.getItem("user"));//On récupère les données de l'utilisateur enregistré dans le local storage
+    if (localUser) {//Si l'utilisateur est enregistré dans le local storage, on récupère ses données
       setEmail(localUser.email);
       setPassword(localUser.password);
       setRememberMe(localUser.rememberMe);
     }
   }, []);
 
-  const fetchToken = async () => {
+  const fetchToken = async () => {//Fonction pour récupérer le token
     try {
       const response = await fetch("http://localhost:3001/api/v1/user/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+        body: JSON.stringify({//On envoie les données de l'utilisateur
           email: usernameInput.value,
           password: passwordInput.value,
         }),
       });
       const data = await response.json();
-      return data.body.token;
+      return data.body.token;//On récupère le token
     } catch (error) {
       setError("Password or Email is incorrect.");
     }
   };
-  const fetchUserDatas = async (token) => {
+  const fetchUserDatas = async (token) => {//Fonction pour récupérer les données de l'utilisateur
     try {
       const response = await fetch(
         "http://localhost:3001/api/v1/user/profile",
@@ -54,29 +56,29 @@ const Auth = () => {
         }
       );
       const data = await response.json();
-      return data.body;
+      return data.body;//On récupère les données de l'utilisateur
     } catch (error) {
       setError("An error occured, please try again later.");
     }
   };
 
-  const rememberUser = () => {
-    if (rememberMe) {
+  const rememberUser = () => {//Fonction pour se souvenir de l'utilisateur
+    if (rememberMe) {//Si l'utilisateur a coché la case "Remember me", on enregistre ses données dans le local storage
       const localUser = {
         email: usernameInput.value,
         password: passwordInput.value,
         rememberMe: rememberInput.checked,
       };
-      localStorage.setItem("user", JSON.stringify(localUser));
+      localStorage.setItem("user", JSON.stringify(localUser));//On enregistre les données de l'utilisateur dans le local storage
     } else {
       localStorage.removeItem("user");
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {//Fonction pour soumettre le formulaire
     e.preventDefault();
 
-    if (!email || !password) {
+    if (!email || !password) {//Si les champs Email et Password ne sont pas remplis, on affiche un message d'erreur
       setError("Please fill in Email and Password fields.");
     } else {
       setError("");
@@ -104,11 +106,11 @@ const Auth = () => {
             <input
               type="text"
               id="username"
-              value={email}
-              onChange={(e) => {
+              value={email}//On affiche l'email de l'utilisateur
+              onChange={(e) => {//On récupère l'email de l'utilisateur
                 setError("");
-                setEmail(e.target.value);
-                setRememberMe(false);
+                setEmail(e.target.value);//On récupère l'email de l'utilisateur
+                setRememberMe(false);//On décoche la case "Remember me"
                 setPassword("");
               }}
             />
@@ -127,11 +129,11 @@ const Auth = () => {
               />
               <i
                 className={
-                  passwordVisibility
+                  passwordVisibility//On affiche l'oeil barré si le mot de passe est caché et l'oeil ouvert si le mot de passe est visible (probleme d'importation de fontawesome, dont know why)
                     ? "fa-solid fa-eye"
                     : "fa-solid fa-eye-slash"
                 }
-                onClick={() => setPasswordVisibility(!passwordVisibility)}
+                onClick={() => setPasswordVisibility(!passwordVisibility)}//On affiche ou on cache le mot de passe
               ></i>
             </div>
           </div>
@@ -140,7 +142,7 @@ const Auth = () => {
               type="checkbox"
               id="remember-me"
               checked={rememberMe}
-              onChange={() => setRememberMe(!rememberMe)}
+              onChange={() => setRememberMe(!rememberMe)}//On coche ou on décoche la case "Remember me"
             />
             <label htmlFor="remember-me">Remember me</label>
           </div>

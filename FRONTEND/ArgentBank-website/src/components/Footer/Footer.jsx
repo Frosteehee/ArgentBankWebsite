@@ -1,3 +1,4 @@
+//Composant  Footer
 import './Footer.scss';
 
 const Footer = () => {

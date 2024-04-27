@@ -1,3 +1,4 @@
+//Page une fois connectée, affichant les informations de l'utilisateur et permettant de les modifier
 import  { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
@@ -6,12 +7,12 @@ import bankAccountData from "../../data/bankAccountData.json"; // Import du fich
 import { editUsername } from "../../redux/Auth.slice";
 import "./Profile.scss";
 const Profile = () => {
-  const user = useSelector((state) => state.user);
+  const user = useSelector((state) => state.user);//On récupère les données de l'utilisateur
   const dispatch = useDispatch();
-  const [editUser, setEditUser] = useState(false);
-  const [username, setUsername] = useState(user.userName);
+  const [editUser, setEditUser] = useState(false);//On initialise la variable editUser à false
+  const [username, setUsername] = useState(user.userName);//On initialise la variable username avec le nom de l'utilisateur
 
-  const handleUsernameSubmit = async () => {
+  const handleUsernameSubmit = async () => {//Fonction pour modifier le nom de l'utilisateur
     dispatch(editUsername(username));
     await fetch("http://localhost:3001/api/v1/user/profile", {
       method: "PUT",
@@ -27,7 +28,7 @@ const Profile = () => {
 
   return (
     <>
-      {!user || !user.isConnected ? (
+      {!user || !user.isConnected ? (//Si l'utilisateur n'est pas connecté, on le redirige vers la page de connexion
         <Navigate to="/" />
       ) : (
         <div className="profile">
@@ -106,11 +107,11 @@ const Profile = () => {
             )}
           </div>
 
-          <h2 className="sr-only">Accounts</h2>
-          {bankAccountData.map((userData, index) => (
+          <h2 className="sr-only">Accounts</h2> 
+          {bankAccountData.map((userData, index) => (//On affiche les informations des comptes bancaires de l'utilisateur
             <div key={index}>
               <h2>{userData.email}</h2>
-              {userData.accounts.map((account, index) => (
+              {userData.accounts.map((account, index) => (//On affiche les informations des comptes bancaires de l'utilisateur
                 <Account
                   key={index}
                   title={account.type}

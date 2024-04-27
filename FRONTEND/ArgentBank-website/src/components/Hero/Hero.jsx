@@ -1,5 +1,5 @@
 //Hero image centrale avec du texte
-// comment integrer l'image bankTree? 
+
 
 import "./Hero.scss";
 

@@ -1,3 +1,5 @@
+//Composant Account qui permet d'afficher les informations d'un compte bancaire
+
 import { PropTypes } from "prop-types";
 
 

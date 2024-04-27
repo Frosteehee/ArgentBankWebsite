@@ -1,5 +1,3 @@
-// App.jsx
-
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 // il faut importer le fournisseur Redux 
 
