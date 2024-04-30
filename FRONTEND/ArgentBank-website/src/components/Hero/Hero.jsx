@@ -6,7 +6,7 @@ import "./Hero.scss";
 
 const Hero = () => {
         return (
-            <figure id="hero">
+            <figure id="hero" loading="lazy"> 
                 <figcaption>
                     <h2 className="sr-only">Promoted Content</h2>
                     <p className="subtitle">No fees.</p>
@@ -20,3 +20,5 @@ const Hero = () => {
     
 
   export default Hero;
+
+  //Ajout de Lazy pour amelioration des performances
