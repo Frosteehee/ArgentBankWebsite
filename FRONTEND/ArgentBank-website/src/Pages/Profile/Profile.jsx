@@ -41,7 +41,7 @@ const Profile = () => {
     return (
         <>
             {!user || !user.isConnected ? ( //Si l'utilisateur n'est pas connecté, on le redirige vers la page de connexion 
-                <Navigate to="/" />
+                <Navigate to="/Auth" />
             ) : (
                 <div className="profile">
                     <div className="headerAccount">

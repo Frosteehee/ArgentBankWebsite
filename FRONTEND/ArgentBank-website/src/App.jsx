@@ -8,6 +8,7 @@ import Home from './Pages/Home/Home';
 import Auth from './Pages/Auth/Auth';
 import Profile from './Pages/Profile/Profile';
 import Header from "./components/Header/Header";
+import SignUp from "./Pages/SignIn/SignUp";
 import store from './redux/store'; 
 const App = () => { //changement function App() par const App = () => { ?
   return (
@@ -18,6 +19,7 @@ const App = () => { //changement function App() par const App = () => { ?
           <Route path="/" element={<Home />} />
           <Route path="/Auth" element={<Auth />} />
           <Route path="/Profile" element={<Profile />} />
+          <Route path="/SignUp" element={<SignUp />} /> {/* Ajout de la route SignUp */}  
         </Routes>
         <Footer />
       </BrowserRouter>
