@@ -1,0 +1,41 @@
+
+  form {
+    display: flex;
+    flex-direction: column  ;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    text-align: left;
+    margin-bottom: 2rem;
+    
+
+
+    input {
+      padding: 5px;
+      font-size: 1.3rem;
+    }
+  
+    button {
+      display: block;
+      width: 100%;
+      padding: 8px;
+      font-size: 1rem;
+      text-decoration: underline;
+    }
+  
+
+  
+  .remember label {
+    margin-left: 0.25rem;
+  }
+  
+  label.sign {
+    font-weight: bold;
+  }
+  }
+  .bg-dark {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 85vh;
+    background-color: #12002b;
+  }

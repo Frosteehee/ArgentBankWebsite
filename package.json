@@ -8,6 +8,8 @@
   "license": "",
   "main": "index.js",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.2",
+    "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
     "bcrypt": "^5.0.0",

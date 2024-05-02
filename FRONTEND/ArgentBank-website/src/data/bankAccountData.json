@@ -5,19 +5,19 @@
         {
           "accountID": "891043207561",
           "type": "Checking",
-          "balance": "2,082.79",
+          "balance": "$2,082.79",
           "description": "Available Balance"
         },
         {
           "accountID": "542897631094",
           "type": "Savings",
-          "balance": "10,928.42",
+          "balance": "$10,928.42",
           "description": "Available Balance"
         },
         {
           "accountID": "736109285432",
           "type": "Credit Card",
-          "balance": "184.30",
+          "balance": "$184.30",
           "description": "Current Balance"
         }
       ]
@@ -28,19 +28,19 @@
         {
           "accountID": "215349870621",
           "type": "Checking",
-          "balance": "3,728.50",
+          "balance": "$3,728.50",
           "description": "Available Balance"
         },
         {
           "accountID": "670923185432",
           "type": "Savings",
-          "balance": "15,492.63",
+          "balance": "$15,492.63",
           "description": "Available Balance"
         },
         {
           "accountID": "459870126354",
           "type": "Credit Card",
-          "balance": "235.10",
+          "balance": "$235.10",
           "description": "Current Balance"
         }
       ]
@@ -51,19 +51,19 @@
         {
           "accountID": "7526498231",
           "type": "Checking",
-          "balance": "2,518.50",
+          "balance": "$2,518.50",
           "description": "Available Balance"
         },
         {
           "accountID": "5406795430",
           "type": "Savings",
-          "balance": "13,572.63",
+          "balance": "$13,572.63",
           "description": "Available Balance"
         },
         {
           "accountID": "7540698460",
           "type": "Credit Card",
-          "balance": "247.10",
+          "balance": "$247.10",
           "description": "Current Balance"
         }
       ]

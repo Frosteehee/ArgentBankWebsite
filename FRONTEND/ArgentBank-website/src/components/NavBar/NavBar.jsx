@@ -2,9 +2,17 @@ import logo from "../../assets/images/argentBankLogo.png";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { useState } from "react"; // Import du useState pour gérer l'état local
 import "./NavBar.scss";
 
 const NavBar = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token")); // Utilisation d'un état local pour suivre l'état de connexion
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false); // Met à jour l'état local après la déconnexion
+  };
+
   return (
     <nav className="main-nav">
       {/* Logo Argent Bank */}
@@ -14,14 +22,14 @@ const NavBar = () => {
       </NavLink>
 
       <div className="login">
-        {/* Icône utilisateur */} 
+        {/* Icône utilisateur */}
         <FontAwesomeIcon icon={faUserCircle} />
 
         {/* Bouton Sign In / Sign Out */}
-        {localStorage.getItem("token") ? (
-          <NavLink className="main-nav-item" to="/" onClick={() => localStorage.removeItem("token")}>
+        {isLoggedIn ? (
+          <button className="main-nav-item" onClick={handleLogout}>
             Sign Out
-          </NavLink>
+          </button>
         ) : (
           <NavLink className="main-nav-item" to="/Auth">
             Sign In
@@ -33,16 +41,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
-
-// je voudrais que le nom de l'utilisateur soit affiché à la coté de Sign In quand il est connecté
-// pour cela je vais utiliser le composant UserContext
-// importer UserContext et useContext
-// useContext pour récupérer les données de UserContext
-// je vais utiliser le destructuring pour récupérer les données de UserContext
-// pour afficher le nom de l'utilisateur à coté de Sign In
-// + un lien vers la page de profil de l'utilisateur
-
-// Path: FRONTEND/ArgentBank-website/src/components/NavBar/NavBar.jsx
-// Compare this snippet from FRONTEND/ArgentBank-website/src/components/Account/Account.jsx:
-// //Composant Account qui permet d'afficher les informations d'un compte bancaire

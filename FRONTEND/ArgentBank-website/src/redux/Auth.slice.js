@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import axios from 'axios';
+
 
 export const authSlice = createSlice({
   name: "user",
@@ -34,21 +34,18 @@ export const authSlice = createSlice({
       state.id = payload.id;
       state.isConnected = true;
     },
+    //remettre Logout et re creer composant pour navbar
+logout: (state) => {
+      state.token = null;
+      state.isConnected = false;
+      state.email = null;
+      state.firstName = null;
+      state.lastName = null;
+      state.userName = null;
+    }
   },
 });
 
-export const { setToken, setUser, editUsername } = authSlice.actions;
-
-// Action asynchrone pour l'inscription de l'utilisateur
-export const signUpUser = (userData) => async (dispatch) => {
-  try {
-    const response = await axios.post('http://localhost:3001/api/v1/user/signup', userData);
-    dispatch(setToken(response.data.token)); // Stocker le token dans le state Redux
-    dispatch(setUser(response.data.user)); // Stocker les informations de l'utilisateur dans le state Redux
-  } catch (error) {
-    console.error("Erreur lors de l'inscription :", error);
-    // Traiter l'erreur si nécessaire
-  }
-};
+export const { setToken, setUser, editUsername, signUpUser, logout } = authSlice.actions;
 
 export default authSlice.reducer;
