@@ -1,16 +1,32 @@
-import logo from "../../assets/images/argentBankLogo.png";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
-import { useState } from "react"; // Import du useState pour gérer l'état local
+import { faUserCircle, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../redux/Auth.slice";
+import logo from "../../assets/images/argentBankLogo.png";
 import "./NavBar.scss";
 
 const NavBar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token")); // Utilisation d'un état local pour suivre l'état de connexion
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState('');
+  const dispatch = useDispatch();
+  const token = useSelector(state => state.user.token);
+  const user = useSelector(state => state.user);
+
+  useEffect(() => {
+    // Vérifier si l'utilisateur est connecté lors du chargement du composant
+    if (token) {
+      setIsLoggedIn(true);
+      setUserName(user?.firstName || 'Your Account'); // Utilise le prénom de l'utilisateur ou "Your Account" si non défini
+    } else {
+      setIsLoggedIn(false);
+      setUserName('');
+    }
+  }, [token, user]);
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false); // Met à jour l'état local après la déconnexion
+    dispatch(logout());
   };
 
   return (
@@ -22,14 +38,23 @@ const NavBar = () => {
       </NavLink>
 
       <div className="login">
-        {/* Icône utilisateur */}
-        <FontAwesomeIcon icon={faUserCircle} />
+        {/* Icône utilisateur et nom */}
+        {isLoggedIn && (
+          <div className="user-info">
+            {/* Lien vers la page Profile */}
+            <NavLink to="/Profile" className="userName">
+              <FontAwesomeIcon className="user-icon" icon={faUserCircle} />
+              <p>{userName}</p>
+            </NavLink>
+          </div>
+        )}
 
         {/* Bouton Sign In / Sign Out */}
         {isLoggedIn ? (
-          <button className="main-nav-item" onClick={handleLogout}>
+          <NavLink className="main-nav-item" onClick={handleLogout}>
+            <FontAwesomeIcon className="sign-out-icon" icon={faSignOutAlt} />
             Sign Out
-          </button>
+          </NavLink>
         ) : (
           <NavLink className="main-nav-item" to="/Auth">
             Sign In

@@ -47,7 +47,10 @@ const SignUp = () => {
 
   return (
     <div>
+    
+     
       <h2>Inscription</h2>
+      <div className='bg-dark'>
       <form onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <label htmlFor="email">Mail</label>
@@ -73,6 +76,7 @@ const SignUp = () => {
           Sign Up
         </button>
       </form>
+    </div>
     </div>
   );
 };

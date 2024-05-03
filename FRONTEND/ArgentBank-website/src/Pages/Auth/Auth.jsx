@@ -111,7 +111,6 @@ const Auth = () => {
           </div>
           <div className="input-wrapper">
             <label htmlFor="password">Password</label>
-            <div className="passwordWrapper">
               <input
                 type={passwordVisibility ? "password" : "text"}
                 id="password"
@@ -121,12 +120,11 @@ const Auth = () => {
                   setPassword(e.target.value);
                 }}
               />
-              <FontAwesomeIcon
+              <FontAwesomeIcon className="password-visibility-icon"
                 icon={passwordVisibility ? faEye : faEyeSlash} // Utilisation des icônes faEye et faEyeSlash pour le bouton de visibilité du mot de passe
                 onClick={() => setPasswordVisibility(!passwordVisibility)}
               />
             </div>
-          </div>
           <div className="input-remember">
             <input
               type="checkbox"

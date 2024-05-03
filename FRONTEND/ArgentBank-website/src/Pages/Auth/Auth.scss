@@ -6,7 +6,7 @@
   background-color: #12002b;
 }
 
-#login { 
+.sign-in-content { 
   box-sizing: border-box;
   margin: 0 auto;
   margin-top: 3rem;
@@ -18,17 +18,30 @@
     font-size: 1.5em;
   }
 
-  fieldset {
+  form {
     text-align: left;
     border: none;
     padding: 0;
     padding-bottom: 15px;
-  }
+
+
+    label {
+      color: black;
+    }
+  
 
   input {
     padding: 5px;
     font-size: 1.3rem;
+    position: relative;
+  
   }
+      .password-visibility-icon{
+   position: absolute;
+   right:40%;
+      top:54%;
+      color: black;
+    }
 
   button {
     display: block;
@@ -38,16 +51,17 @@
     text-decoration: underline;
   }
 
-  p {
+  .errorDisplay {
     color: red;
     font-weight: italic;
   }
 }
 
-.remember label {
+.input-remember label { 
   margin-left: 0.25rem;
 }
 
-label.sign { 
+.sign-in-icon { 
   font-weight: bold;
+}
 }

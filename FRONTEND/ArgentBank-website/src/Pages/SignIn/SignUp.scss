@@ -28,6 +28,9 @@
     margin-left: 0.25rem;
   }
   
+  label{
+    color:white
+  }
   label.sign {
     font-weight: bold;
   }
@@ -38,4 +41,8 @@
     align-items: flex-start;
     height: 85vh;
     background-color: #12002b;
+
+    h2{
+     
+    }
   }

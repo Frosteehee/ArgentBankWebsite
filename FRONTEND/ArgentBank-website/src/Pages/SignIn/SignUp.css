@@ -20,6 +20,9 @@ form button {
 form .remember label {
   margin-left: 0.25rem;
 }
+form label {
+  color: white;
+}
 form label.sign {
   font-weight: bold;
 }

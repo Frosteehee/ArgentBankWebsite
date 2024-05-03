@@ -8,9 +8,10 @@ import Error from './Pages/Error/Error';
 import Header from "./components/Header/Header";
 import SignUp from "./Pages/SignIn/SignUp";
 import store from './redux/store'; 
+
 const App = () => { 
   return (
-   <Provider store={store}>
+    <Provider store={store}>
       <BrowserRouter>
         <Header />
         <Routes>
@@ -22,7 +23,7 @@ const App = () => {
         </Routes>
         <Footer />
       </BrowserRouter>
-   </Provider>
+    </Provider>
   )
 }
 

@@ -6,7 +6,7 @@
   background-color: #12002b;
 }
 
-#login {
+.sign-in-content {
   box-sizing: border-box;
   margin: 0 auto;
   margin-top: 3rem;
@@ -14,35 +14,43 @@
   width: 350px;
   background-color: white;
 }
-#login h1 {
+.sign-in-content h1 {
   font-size: 1.5em;
 }
-#login fieldset {
+.sign-in-content form {
   text-align: left;
   border: none;
   padding: 0;
   padding-bottom: 15px;
 }
-#login input {
+.sign-in-content form label {
+  color: black;
+}
+.sign-in-content form input {
   padding: 5px;
   font-size: 1.3rem;
+  position: relative;
 }
-#login button {
+.sign-in-content form .password-visibility-icon {
+  position: absolute;
+  right: 40%;
+  top: 54%;
+  color: black;
+}
+.sign-in-content form button {
   display: block;
   width: 100%;
   padding: 8px;
   font-size: 1rem;
   text-decoration: underline;
 }
-#login p {
+.sign-in-content form .errorDisplay {
   color: red;
   font-weight: italic;
 }
-
-.remember label {
+.sign-in-content .input-remember label {
   margin-left: 0.25rem;
 }
-
-label.sign {
+.sign-in-content .sign-in-icon {
   font-weight: bold;
 }/*# sourceMappingURL=Auth.css.map */
