@@ -33,9 +33,20 @@
 }
 .sign-in-content form .password-visibility-icon {
   position: absolute;
-  right: 40%;
-  top: 54%;
-  color: black;
+  right: 45%;
+  top: 24.8rem;
+  color: BLACK;
+}
+@media (max-width: 920px) {
+  .sign-in-content form .password-visibility-icon {
+    right: 22rem;
+  }
+}
+@media (max-width: 600px) {
+  .sign-in-content form .password-visibility-icon {
+    right: 100px;
+    top: 24rem;
+  }
 }
 .sign-in-content form button {
   display: block;

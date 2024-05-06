@@ -37,10 +37,24 @@
   
   }
       .password-visibility-icon{
-   position: absolute;
-   right:40%;
-      top:54%;
-      color: black;
+      position: absolute;
+      right: 45%;  
+      top:24.8rem;
+      color: BLACK;
+
+      @media (max-width: 920px){
+       
+        right: 22rem;
+      
+      
+      }
+      @media (max-width: 600px){
+        
+        right: 100px;
+        top: 24rem;
+        
+      }
+
     }
 
   button {
