@@ -6,6 +6,7 @@ import "./Home.scss";
 const Home = () => {
   return (
     <>
+    
       <main>
         <Hero />
         <section className="features">
