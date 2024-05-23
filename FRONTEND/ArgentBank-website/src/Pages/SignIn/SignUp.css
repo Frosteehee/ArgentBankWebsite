@@ -1,0 +1,36 @@
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  text-align: left;
+  margin-bottom: 2rem;
+}
+form input {
+  padding: 5px;
+  font-size: 1.3rem;
+}
+form button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+form .remember label {
+  margin-left: 0.25rem;
+}
+form label {
+  color: white;
+}
+form label.sign {
+  font-weight: bold;
+}
+
+.bg-dark {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 85vh;
+  background-color: #12002b;
+}/*# sourceMappingURL=SignUp.css.map */

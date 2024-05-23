@@ -1,12 +1,14 @@
-import { chatLogo, moneyLogo, securityLogo } from "../../assets/images";
+
 import Hero from "../../components/Hero/Hero.jsx";
+import { chatLogo, moneyLogo, securityLogo } from "../../assets/images";
 import "./Home.scss";
-//Creation du composant "Head Title" necessaire ? 
+
 const Home = () => {
   return (
     <>
+    
       <main>
-     <Hero />
+        <Hero />
         <section className="features">
           <h2 className="sr-only">Features</h2>
           <div className="feature-item">
@@ -25,8 +27,8 @@ const Home = () => {
             <p>We use top of the line encryption to make sure your data and money is always safe.</p>
           </div>
         </section>
+ 
       </main>
-      
     </>
   );
 };

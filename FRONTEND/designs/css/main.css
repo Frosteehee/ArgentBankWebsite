@@ -19,6 +19,8 @@ body {
 
 .bg-dark {
   background-color: #12002b;
+ 
+ padding:50px;
 }
 
 .sr-only {
@@ -45,6 +47,8 @@ body {
 .main-nav a {
   font-weight: bold;
   color: #2c3e50;
+  display: flex;
+  flex-direction: row;
 }
 
 .main-nav a.router-link-exact-active {
@@ -170,7 +174,7 @@ body {
   background-color: white;
   width: 300px;
   margin: 0 auto;
-  margin-top: 3rem;
+
   padding: 2rem;
 }
 

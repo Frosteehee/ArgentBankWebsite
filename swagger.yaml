@@ -14,7 +14,7 @@ paths:
       tags:
         - User Module
       summary: Login
-      description: API for Login
+      description: API for user login
       parameters:
         - in: body
           name: body
@@ -33,12 +33,13 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
+
   /user/signup:
     post:
       tags:
         - User Module
       summary: Signup
-      description: API for Signup
+      description: API for user signup
       parameters:
         - in: body
           name: body
@@ -57,6 +58,7 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
+
   /user/profile:
     post:
       security:
@@ -64,25 +66,7 @@ paths:
       tags:
         - User Module
       summary: User Profile API
-      description: API for fetching a user profile
-      #produces:
-       # - application/json
-      responses:
-        '200':
-          description: User profile retrieved successully
-          schema:
-            $ref: '#/definitions/ApiResponse'
-        '400':
-          description: Invalid Fields
-        '500':
-          description: Internal Server Error
-    put:
-      security:
-        - Bearer: []
-      tags:
-        - User Module
-      summary: User Profile API
-      description: API for updating a user profile
+      description: API for fetching or updating a user profile
       parameters:
         - in: body
           name: body
@@ -94,44 +78,132 @@ paths:
         - application/json
       responses:
         '200':
-          description: User profile retrieved successully
+          description: User profile retrieved/updated successfully
           schema:
             $ref: '#/definitions/ApiResponse'
         '400':
           description: Invalid Fields
         '500':
           description: Internal Server Error
+
+  /transactions/{userId}:
+    get:
+      security:
+        - Bearer: []
+      tags:
+        - Transaction Module
+      summary: Retrieve User Transactions
+      description: API for retrieving transactions of a user
+      parameters:
+        - name: userId
+          in: path
+          description: User ID to fetch transactions for
+          required: true
+          type: string
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: List of transactions retrieved successfully
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Transaction'
+          examples:
+            application/json:
+              - transactionId: "67890"
+                accountId: "12345"
+                accountName: "Checking Account"
+                date: "2021-03-01"
+                transactionType: "electronic"
+                categoryId: "10"
+                note: "Grocery Shopping"
+                amount: 150.00
+        '400':
+          description: Invalid user ID provided
+        '404':
+          description: User not found
+        '500':
+          description: Internal Server Error
+
+  /transactions/{userId}/{transactionId}:
+    put:
+      security:
+        - Bearer: []
+      tags:
+        - Transaction Module
+      summary: Update Transaction
+      description: API for updating a specific transaction of a user
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: string
+          description: User ID associated with the transaction
+        - name: transactionId
+          in: path
+          required: true
+          type: string
+          description: Transaction ID to be updated
+        - in: body
+          name: body
+          required: true
+          description: New category ID and note for the transaction
+          schema:
+            $ref: '#/definitions/TransactionUpdate'
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Transaction updated successfully
+          schema:
+            $ref: '#/definitions/Transaction'
+          examples:
+            application/json:
+              - transactionId: "67890"
+                categoryId: "10"
+                note: "Restaurant"
+        '400':
+          description: Invalid request if data is incomplete or incorrect
+        '404':
+          description: User or transaction not found
+        '500':
+          description: Internal Server Error
+
 securityDefinitions:
   Bearer:
     type: apiKey
     name: Authorization
     in: header
+
 definitions:
   User:
     properties:
       email:
         type: string
-        description: user email
+        description: User email
       password:
         type: string
-        description: user password
+        description: User password
       firstName:
         type: string
-        description: user first name
+        description: User first name
       lastName:
         type: string
-        description: user last name
+        description: User last name
       userName:
         type: string
-        description: user public name
+        description: User public name
+
   Login:
     properties:
       email:
         type: string
-        description: user email
+        description: User email
       password:
         type: string
-        description: user password
+        description: User password
+
   ApiResponse:
     type: object
     properties:
@@ -146,13 +218,55 @@ definitions:
             type: string
           email:
             type: string
+
   LoginResponse:
     type: object
     properties:
       token:
         type: string
+
   UserProfile:
     type: object
     properties:
       userName:
         type: string
+
+  Transaction:
+    type: object
+    properties:
+      accountId:
+        type: string
+        description: Unique identifier for the account to which the transaction belongs
+      accountName:
+        type: string
+        description: Name of the account
+      transactionId:
+        type: string
+        description: Unique identifier for the transaction
+      date:
+        type: string
+        format: date
+        description: Date when the transaction was made
+      transactionType:
+        type: string
+        description: Type of the transaction (e.g., debit, credit)
+      categoryId:
+        type: string
+        description: Identifier for the category of the transaction
+      note:
+        type: string
+        description: Additional notes associated with the transaction
+      amount:
+        type: number
+        format: double
+        description: Monetary value of the transaction
+
+  TransactionUpdate:
+    type: object
+    properties:
+      categoryId:
+        type: string
+        description: New category ID for the transaction
+      note:
+        type: string
+        description: Updated note for the transaction

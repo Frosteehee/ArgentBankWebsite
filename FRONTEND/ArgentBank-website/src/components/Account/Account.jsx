@@ -3,7 +3,7 @@
 import { PropTypes } from "prop-types";
 
 
-const Account = ({title,amount,description}) => {
+const Account = ({title,amount,description}) => {//On récupère les props title, amount et description du composant Account
   return (
     <section className="account">
         <div className="account-content-wrapper">
@@ -15,7 +15,7 @@ const Account = ({title,amount,description}) => {
           <button className={"transaction-button"} >View transactions</button>
         </div>
       </section>
-  );
+  );// quand je click sur le bouton je veux que l'utilisateur sois redirigé vers la page/composants des transactions
 };
 Account.propTypes = {
   title: PropTypes.string.isRequired,

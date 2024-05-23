@@ -1,3 +1,44 @@
+.profile{
+  background-color: #12002b;
+  padding-bottom: 10%;
+
+  h1{
+    color: white;
+    text-align: center;
+    padding-top: 5%;
+  
+  }
+ form{
+ 
+width: 80%;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+button{
+  width: 100%;
+  padding: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  border-color: #00bc77;
+  background-color: #00bc77;
+  color: #fff;
+  border-radius: 3px;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    opacity: 0.95;
+  }
+}
+}
+ }
+
+  
+
+
 .account {
     display: flex;
     justify-content: space-between;

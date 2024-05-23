@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+
 export const authSlice = createSlice({
   name: "user",
   initialState: {
@@ -25,17 +26,26 @@ export const authSlice = createSlice({
     editUsername: (state, { payload }) => {
       state.userName = payload;
     },
-    logout: (state) => {
+    signUpUser: (state, { payload }) => {
+      state.email = payload.email;
+      state.firstName = payload.firstName;
+      state.lastName = payload.lastName;
+      state.userName = payload.userName;
+      state.id = payload.id;
+      state.isConnected = true;
+    },
+    //remettre Logout et re creer composant pour navbar
+logout: (state) => {
       state.token = null;
       state.isConnected = false;
       state.email = null;
       state.firstName = null;
       state.lastName = null;
       state.userName = null;
-      state.id = null;
-    },
+    }
   },
 });
 
-export const { setToken, setUser, editUsername, logout } = authSlice.actions;
+export const { setToken, setUser, editUsername, signUpUser, logout } = authSlice.actions;
+
 export default authSlice.reducer;
