@@ -1,41 +1,46 @@
+@charset "UTF-8";
 #hero {
   position: relative;
   margin: 0;
   height: 300px;
+  width: 100%;
   background-image: url("../../assets/images/bank-tree.webp");
   background-position: 0 -50px;
   background-size: cover;
   background-repeat: no-repeat;
 }
-#hero figcaption {
+
+figcaption {
   position: relative;
   top: 2rem;
   margin: 0 auto;
   padding: 2rem;
-  width: 200px;
+  width: 80%; /* Utilisation d'unités relatives pour la réactivité */
+  max-width: 300px;
   background: white;
   text-align: left;
 }
+
 @media (min-width: 920px) {
   #hero {
     height: 400px;
     background-position: 0% 33%;
   }
-  #hero figcaption {
+  figcaption {
     position: absolute;
     top: 50px;
     right: 50px;
     margin: 2rem;
-    width: 300px;
+    width: 50%; /* Utilisation d'unités relatives pour la réactivité */
+    max-width: 300px;
   }
-  #hero figcaption p {
+  figcaption p {
     font-size: 1.5rem;
   }
-  #hero p.text {
+  p.text {
     font-size: 1.2rem;
   }
 }
-
 .subtitle {
   margin: 0;
   font-weight: bold;
