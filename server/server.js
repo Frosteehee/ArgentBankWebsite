@@ -1,4 +1,5 @@
 const express = require('express')
+const compression = require('compression');
 const dotEnv = require('dotenv')
 const cors = require('cors')
 const swaggerUi = require('swagger-ui-express')
@@ -23,6 +24,9 @@ app.use(express.urlencoded({ extended: true }))
 
 // Handle custom routes
 app.use('/api/v1/user', require('./routes/userRoutes'))
+
+// Utilisation du middleware compression
+app.use(compression());
 
 // API Documentation
 if (process.env.NODE_ENV !== 'production') {
