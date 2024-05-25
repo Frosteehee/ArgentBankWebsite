@@ -1,6 +1,7 @@
 const express = require('express')
 const dotEnv = require('dotenv')
 const cors = require('cors')
+const compression = require('compression') // Ajout de la bibliothèque de compression
 const swaggerUi = require('swagger-ui-express')
 const yaml = require('yamljs')
 const swaggerDocs = yaml.load('./swagger.yaml')
@@ -20,6 +21,9 @@ app.use(cors())
 // Request payload middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+// Utilisation de la compression pour toutes les réponses
+app.use(compression())
 
 // Handle custom routes
 app.use('/api/v1/user', require('./routes/userRoutes'))

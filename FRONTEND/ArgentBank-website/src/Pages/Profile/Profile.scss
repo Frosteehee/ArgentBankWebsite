@@ -17,9 +17,17 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 
-button{
-  width: 100%;
-  padding: 8px;
+label{
+ margin:10px;
+}
+
+
+.username, .firstname, .lastname{
+  margin-bottom: 10px;
+  margin-left:10px;
+  
+}
+.buttonsContainer{
   font-size: 1.1rem;
   font-weight: bold;
   margin-top: 1rem;
@@ -27,6 +35,8 @@ button{
   background-color: #00bc77;
   color: #fff;
   border-radius: 3px;
+  display: flex;
+  flex-direction: row;
   cursor: pointer;
   &:hover,
   &:focus {
@@ -35,9 +45,6 @@ button{
 }
 }
  }
-
-  
-
 
 .account {
     display: flex;
@@ -57,6 +64,7 @@ button{
     label {
       width: 100%;
       flex: 1;
+    
     }
   
     h3 {

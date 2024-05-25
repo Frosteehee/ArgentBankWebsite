@@ -18,7 +18,7 @@ const NavBar = () => {
     // Vérifier si l'utilisateur est connecté lors du chargement du composant
     if (token) {
       setIsLoggedIn(true);
-      setUserName(user?.firstName || 'Your Account'); // Utilise le prénom de l'utilisateur ou "Your Account" si non défini
+      setUserName(user?.userName || 'Your Account'); // Utilise le PSEUDO de l'utilisateur ou "Your Account" si non défini
     } else {
       setIsLoggedIn(false);
       setUserName('');

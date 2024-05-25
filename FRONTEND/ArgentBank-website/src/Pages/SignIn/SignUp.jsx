@@ -1,3 +1,6 @@
+//Page interessante, mais non demandée pour le projet, donc retirée du back-end 
+
+
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { signUpUser } from '../../redux/Auth.slice.js';
