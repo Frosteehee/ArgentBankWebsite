@@ -1,8 +1,7 @@
 const express = require('express')
-const compression = require('compression');
+const compression = require('compression')
 const dotEnv = require('dotenv')
 const cors = require('cors')
-const compression = require('compression') // Ajout de la bibliothèque de compression
 const swaggerUi = require('swagger-ui-express')
 const yaml = require('yamljs')
 const swaggerDocs = yaml.load('./swagger.yaml')
